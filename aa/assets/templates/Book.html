@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .aa {
+        margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+<!--            display: flex;-->
+            align-items: center;
+<!--            justify-content: center;-->
+
+<!--            margin: 1px;-->
+
+
+        }
+
+        .form-container {
+            width: 300px; /* Set the desired width of your form */
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+body{
+background: url('{% static "bg1.jpg" %}');
+}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+    </style>
+</head>
+<body>
+<h2 style="text-align:right;color:white">Wellcome {{username}} !! <a style="text-decoration: none;color:yellow" href="{% url 'login' %}">Logout</a></h2>
+<h1 style="text-align:center;color:yellow">Library Management System</h1>
+<div  class="aa" style="width:500px;background-color:powderblue;margin-align:center">
+<form method="post" enctype="multipart/form-data">
+    <h1 style="color:red">Add Book Deatils</h1>
+    {% csrf_token %}
+  Book Name: <input type="text" required name="Book_Name"> <br> <br>
+Author Name:<input type="text"  name="Author_Name"> <br> <br>
+Book Img:<input type="file"  name="File_Data"> <br> <br>
+Status:<input type="text"  name="Status"><br><br>
+<!--Create_Date:<input type="date"  name="Create_Date"><br><br>-->
+<!--Update_Date:<input type="date"  name="Update_Date"><br><br>-->
+
+
+    <input type="submit" value="submit">
+</form>
+<button> <a style="text-decoration: none" href="{% url 'admin_bookdetails' %}">Back</a>  </button>
+
+</div>
+</body>
+</html>

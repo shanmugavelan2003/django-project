@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<style>
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+    body{
+    background: url('{% static "bg1.jpg" %}');
+    }
+</style>
+<body>
+<h1 style="text-align:center;color:yellow">Library Management System</h1>
+<div style="width:500px;background-color:powderblue;" class="center">
+<form method="post">
+    {% csrf_token %}
+  <center> <h4>   First Name: <input type="text" required name="first Name"> <br> <br>
+Last Name:<input type="text"  name="last Name"> <br> <br>
+Phone No: <input type="number"  name="number"> <br> <br>
+Email Id: <input type="email"  name="email"><br><br>
+User Id:  <input type="text"  name="uid"><br><br>
+Password: <input type="text"  name="psd"><br><br> </h4>
+
+<!--gender:<input type="text" name="gen"><br><br>-->
+
+
+      <input type="submit" value="submit"> </center>
+</form>
+    <a  href="{% url 'login' %}">Back</a>
+</div>
+
+<script>
+    function validation(){
+    a= document.newform.first Name.value;
+    if (a
+    {
+    alert(a)
+    return false;
+    b=document.newform.Phone No.value;
+    alert(b)
+    return false;
+    }
+
+</script>
+</body>
+</html>

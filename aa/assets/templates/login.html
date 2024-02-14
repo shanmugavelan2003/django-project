@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        .aa {
+            margin: auto;
+
+  border: 3px solid ;
+  padding: 10px;
+  margin-top:150px;
+        }
+
+        form {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+body{
+background: url('{% static "bg1.jpg" %}');
+}
+    </style>
+</head>
+<body>
+<h1 style="text-align:center;color:yellow">Library Management System</h1>
+<div style="background-color:powderblue;width:500px;margin-align:center" class="aa">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required name="username" placeholder="Username"><br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required name="password" placeholder="Password">
+        <br><br>
+        <input type="submit" value="Login">
+
+        <button type="button"> <a href="{% url 'index' %}">sigh up</a>  </button>
+    </form></div>
+</body>
+</html>

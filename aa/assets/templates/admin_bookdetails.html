@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color:powderblue;
+
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+body{
+    background: url('{% static "bg1.jpg" %}');
+    }
+</style>
+<h2 style="text-align:right;color:white">Wellcome {{username}} !! <a style="text-decoration: none;color:yellow" href="{% url 'login' %}">Logout</a></h2>
+<h1 style="text-align:center;color:yellow">Library Management System</h1>
+<button type="button" style="margin-left:200px;background-color:black;height:30px;width:100px;"> <a style="text-decoration: none;color:yellow" href="{% url 'viewdetails' %}">User Details</a>  </button>
+<button type="button" style="margin-left:500px;background-color:black;height:30px;width:150px;"> <a style="text-decoration: none;color:yellow" href="{% url 'Book' %}">Add Book Details</a>  </button>
+<div>
+<table cellpadding="13" class="center">
+    <tr>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Status</th>
+        <th>Book Img</th>
+
+        <th>Delete  </th>
+    </tr>
+    {% for b in object %}
+    <tr>
+        <td>{{b.Book_Name}}</td>
+        <td>{{b.Author_Name}}</td>
+        <td>{{b.Status}}</td>
+        <td><img src="{{b.File_Data.url}}" style="height:100px;width:100px"></td>
+        <td><a style="text-decoration: none;" href="{% url 'delete_bookdetails' b.id %}"> Delete</a></td>
+        {% endfor %}
+    </tr>
+</table></div>
+</body>
+</html>
